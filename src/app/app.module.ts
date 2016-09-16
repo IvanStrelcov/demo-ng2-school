@@ -1,24 +1,35 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { BrowserModule }      from '@angular/platform-browser';
+import { NgModule }           from '@angular/core';
+import { FormsModule }        from '@angular/forms';
+import { HttpModule }         from '@angular/http';
+import { RouterModule }       from '@angular/router';
 
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { AppRouting }         from './app.routes';
+import { AppComponent }       from './app.component';
+import { AppService }         from './app.service';
+import { HeaderComponent }    from './header/header.component';
+import { SidebarComponent }   from './sidebar/sidebar.component';
+
+import { BloggModule }        from './+blogg';
+import { NoContentComponent } from './nocontent/nocontent.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    SidebarComponent,
+    NoContentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule,
+    BloggModule,
+    AppRouting
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
